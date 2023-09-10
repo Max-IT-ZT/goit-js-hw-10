@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const catInfoDiv = document.querySelector('.cat-info');
   const loader = document.querySelector('.loader');
   const errorElement = document.querySelector('.error');
-
   fetchBreeds()
     .then(breeds => {
       breeds.forEach(breed => {
@@ -19,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Fetch breeds error:', error);
       errorElement.classList.remove('hidden');
     });
-
   breedSelect.addEventListener('change', () => {
     const selectedBreedId = breedSelect.value;
 
