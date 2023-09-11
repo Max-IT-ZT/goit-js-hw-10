@@ -28,17 +28,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
       fetchCatByBreed(selectedBreedId)
         .then(catData => {
+          catInfoDiv.innerHTML = '';
+
           const catInfoHTML = `
-          <div class="img-size"><img src="${catData[0].url}" alt="Cat Image"></div><div class="text">
-          <h1>${catData[0].breeds[0].name}</h1>
-          <p>${catData[0].breeds[0].description}</p>
-          <p><span class="temperament">Temperament:</span> ${catData[0].breeds[0].temperament}</p>
-          </div>
-        `;
+    <div class="img-size"><img src="${catData[0].url}" alt="Cat Image"></div><div class="text">
+    <h1>${catData[0].breeds[0].name}</h1>
+    <p>${catData[0].breeds[0].description}</p>
+    <p><span class="temperament">Temperament:</span> ${catData[0].breeds[0].temperament}</p>
+    </div>
+  `;
           console.log(catData);
           catInfoDiv.innerHTML = catInfoHTML;
         })
         .catch(() => {
+          catInfoDiv.innerHTML = '';
           Notiflix.Notify.failure(errorElement.textContent);
         })
         .finally(() => {
