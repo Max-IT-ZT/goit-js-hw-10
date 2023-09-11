@@ -1,5 +1,5 @@
 import { fetchBreeds, fetchCatByBreed } from './cat-api.js';
-
+import Notiflix from 'notiflix';
 document.addEventListener('DOMContentLoaded', () => {
   const breedSelect = document.querySelector('.breed-select');
   const catInfoDiv = document.querySelector('.cat-info');
@@ -14,10 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
         breedSelect.appendChild(option);
       });
     })
-    .catch(error => {
-      console.error('Fetch breeds error:', error);
-      errorElement.classList.remove('hidden');
+    .catch(() => {
+      Notiflix.Notify.failure(errorElement.textContent);
     });
+
   breedSelect.addEventListener('change', () => {
     const selectedBreedId = breedSelect.value;
 
@@ -37,9 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(catData);
           catInfoDiv.innerHTML = catInfoHTML;
         })
-        .catch(error => {
-          console.error('Fetch cat error:', error);
-          errorElement.classList.remove('hidden');
+        .catch(() => {
+          Notiflix.Notify.failure(errorElement.textContent);
         })
         .finally(() => {
           loader.classList.add('hidden');

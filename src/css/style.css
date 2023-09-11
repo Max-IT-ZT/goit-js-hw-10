@@ -1,6 +1,19 @@
 .hidden {
   display: none;
 }
+.breed-select {
+  text-align: center;
+  margin-left: 45%;
+  margin-bottom: 50px;
+  width: 150px;
+  height: 30px;
+  font-size: 16px;
+}
+
+.breed-select:hover {
+  cursor: pointer;
+}
+
 .img-size {
   display: flex;
   justify-content: center;
